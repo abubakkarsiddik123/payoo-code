@@ -24,6 +24,24 @@ document.getElementById("cashout-btn").addEventListener("click", function () {
     //5.1: true::show an alert >set Balance
     alert("cashout successfull");
     setBalance(newBalance);
+
+        // 1-history-container ke dhore niye ashbo
+    const history = document.getElementById("history-container");
+
+    // 2 -new div create
+    const newHistory = document.createElement("div");
+
+    // 3 -new div innerHTML add korbo
+    newHistory.innerHTML = `
+    <div class="transaction-card p-5 bg-base-100">
+       Cashout ${cashoutAmount} TAKA Success to
+        ${cashoutNumber} ,at ${new Date()}
+    </div>
+    
+    `;
+
+    // 4 -history container e newDiv append korbo
+    history.appendChild(newHistory);
   } else {
     //5.2: true ::show an error alert >set Balance
     alert("Invalid pin");
